@@ -3,10 +3,18 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { StoreModule } from '@ngrx/store';
+import { VehicleTypeComponent } from './vehicle-type/vehicle-type.component';
+import { VehicleSubTypeComponent } from './vehicle-sub-type/vehicle-sub-type.component';
+import { VehicleLicensePlateComponent } from './vehicle-license-plate/vehicle-license-plate.component';
+import { VehiclePictureComponent } from './vehicle-picture/vehicle-picture.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    VehicleTypeComponent,
+    VehicleSubTypeComponent,
+    VehicleLicensePlateComponent,
+    VehiclePictureComponent
   ],
   imports: [
     BrowserModule,
