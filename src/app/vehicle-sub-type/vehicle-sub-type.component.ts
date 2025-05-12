@@ -1,10 +1,10 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, SimpleChanges } from '@angular/core';
 
 @Component({
-    selector: 'app-vehicle-sub-type',
-    templateUrl: './vehicle-sub-type.component.html',
-    styleUrls: ['./vehicle-sub-type.component.css'],
-    standalone: false
+  selector: 'app-vehicle-sub-type',
+  templateUrl: './vehicle-sub-type.component.html',
+  styleUrls: ['./vehicle-sub-type.component.css'],
+  standalone: false
 })
 export class VehicleSubTypeComponent implements OnInit {
   @Input() selectedVehicleType = ''
@@ -33,28 +33,39 @@ export class VehicleSubTypeComponent implements OnInit {
     "Zijspan"
   ]
 
-  handleClick(event: any) {
-    if (event === 'Auto') {
-      this.isAutoSelected = true
-      this.isMotorSelected = false
-      this.isScooterSelected = false
-    }
-    else if (event === 'Motor') {
-      this.isAutoSelected = false
-      this.isMotorSelected = true
-      this.isScooterSelected = false
-    }
-    else {
-      this.isAutoSelected = false
-      this.isMotorSelected = false
-      this.isScooterSelected = true
-    }
+  handleChange(event: Event) {
+
   }
 
   constructor() {
   }
 
   ngOnInit(): void {
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['selectedVehicleType'] && changes['selectedVehicleType'].currentValue) {
+      // Debug state
+      // console.log(`Auto: ${this.isAutoSelected}`)
+      // console.log(`Motor: ${this.isMotorSelected}`)
+      // console.log(`Scooter: ${this.isScooterSelected}`)
+
+      if (this.selectedVehicleType === 'Auto') {
+        this.isAutoSelected = true
+        this.isMotorSelected = false
+        this.isScooterSelected = false
+      }
+      else if (this.selectedVehicleType === 'Motor') {
+        this.isAutoSelected = false
+        this.isMotorSelected = true
+        this.isScooterSelected = false
+      }
+      else {
+        this.isAutoSelected = false
+        this.isMotorSelected = false
+        this.isScooterSelected = true
+      }
+    }
   }
 
 }
