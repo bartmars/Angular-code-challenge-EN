@@ -3,7 +3,7 @@
     <h2 class="text-xl font-bold text-blue-500">Voertuiginformatie opzoeken</h2>
 
     <!-- SELECT VEHICLE TYPE-->
-    <app-vehicle-type [selectedVehicleType]="vehicleType"></app-vehicle-type>
+    <app-vehicle-type [selectedVehicleType]="vehicleType" (updateVehicleType)="handleClick($event)"></app-vehicle-type>
 
     <!-- SELECT VEHICLE SUBTYPE-->
     <app-vehicle-sub-type [selectedVehicleType]="vehicleType"></app-vehicle-sub-type>
@@ -18,7 +18,5 @@
       <div class="text-red-700">Vul alle waardes correct in.</div>
     </div>
   </form>
-  <picture>
-    <img src="./assets/auto.jpg" alt="auto" class="object-cover h-full w-full">
-  </picture>
+  <app-vehicle-picture [selectedVehicleType]="vehicleType"></app-vehicle-picture>
 </div>

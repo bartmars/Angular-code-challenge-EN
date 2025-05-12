@@ -2,8 +2,10 @@
 
 <label class="block mt-4">
     <span class="text-gray-700">Van welk type voertuig wilt u voertuiginformatie opzoeken?</span>
-    <select class="block w-full mt-1 rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0" name="vehicle-type">
-        <option #vehicleType *ngFor="let vehicleType of vehicleTypes" (change)="handleChange(vehicleType.value)">
+    <select
+        class="block w-full mt-1 rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0"
+        name="vehicle-type" (change)="handleChange($event)">
+        <option #vehicleType *ngFor="let vehicleType of vehicleTypes" [value]="vehicleType">
             {{ vehicleType }}
         </option>
     </select>
