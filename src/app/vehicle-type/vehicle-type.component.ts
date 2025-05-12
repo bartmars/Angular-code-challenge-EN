@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-vehicle-type',
@@ -6,15 +6,24 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./vehicle-type.component.css']
 })
 export class VehicleTypeComponent implements OnInit {
+  @Input() selectedVehicleType = ''
+
   vehicleTypes: any[] = [
     "Auto",
     "Motor",
     "Scooter"
   ]
 
+  handleChange(value: string) {
+    console.log(value)
+    this.selectedVehicleType = value
+    // this.updatedVehicleType = value
+  }
+
   constructor() { }
 
   ngOnInit(): void {
   }
+
 
 }

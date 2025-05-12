@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-vehicle-sub-type',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./vehicle-sub-type.component.css']
 })
 export class VehicleSubTypeComponent implements OnInit {
+  @Input() selectedVehicleType = ''
+
   isAutoSelected: boolean = true
   isMotorSelected: boolean = false
   isScooterSelected: boolean = false
@@ -31,10 +33,7 @@ export class VehicleSubTypeComponent implements OnInit {
   ]
 
   handleClick(event: any) {
-    console.log(event)
     if (event === 'Auto') {
-      console.log(event)
-
       this.isAutoSelected = true
       this.isMotorSelected = false
       this.isScooterSelected = false
