@@ -1,9 +1,10 @@
 import { Component, OnInit, Input, Output } from '@angular/core';
 
 @Component({
-  selector: 'app-vehicle-type',
-  templateUrl: './vehicle-type.component.html',
-  styleUrls: ['./vehicle-type.component.css']
+    selector: 'app-vehicle-type',
+    templateUrl: './vehicle-type.component.html',
+    styleUrls: ['./vehicle-type.component.css'],
+    standalone: false
 })
 export class VehicleTypeComponent implements OnInit {
   @Input() selectedVehicleType = ''

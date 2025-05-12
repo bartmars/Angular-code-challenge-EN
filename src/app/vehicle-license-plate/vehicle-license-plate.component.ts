@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { KentekenCheck } from 'rdw-kenteken-check';
 
 @Component({
-  selector: 'app-vehicle-license-plate',
-  templateUrl: './vehicle-license-plate.component.html',
-  styleUrls: ['./vehicle-license-plate.component.css']
+    selector: 'app-vehicle-license-plate',
+    templateUrl: './vehicle-license-plate.component.html',
+    styleUrls: ['./vehicle-license-plate.component.css'],
+    standalone: false
 })
 export class VehicleLicensePlateComponent implements OnInit {
   
