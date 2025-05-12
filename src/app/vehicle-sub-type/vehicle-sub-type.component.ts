@@ -6,8 +6,53 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./vehicle-sub-type.component.css']
 })
 export class VehicleSubTypeComponent implements OnInit {
+  isAutoSelected: boolean = true
+  isMotorSelected: boolean = false
+  isScooterSelected: boolean = false
 
-  constructor() { }
+  vehicleAutoSubTypes: any[] = [
+    "Hatchback",
+    "Sedan",
+    "Station",
+    "Cabriolet",
+    "Coupé",
+    "MPV",
+    "Terreinauto"
+  ]
+
+  vehicleMotorSubTypes: any[] = [
+    "All-road",
+    "Naked",
+    "Enduro",
+    "Race",
+    "Toermotor",
+    "Chopper",
+    "Zijspan"
+  ]
+
+  handleClick(event: any) {
+    console.log(event)
+    if (event === 'Auto') {
+      console.log(event)
+
+      this.isAutoSelected = true
+      this.isMotorSelected = false
+      this.isScooterSelected = false
+    }
+    else if (event === 'Motor') {
+      this.isAutoSelected = false
+      this.isMotorSelected = true
+      this.isScooterSelected = false
+    }
+    else {
+      this.isAutoSelected = false
+      this.isMotorSelected = false
+      this.isScooterSelected = true
+    }
+  }
+
+  constructor() {
+  }
 
   ngOnInit(): void {
   }
