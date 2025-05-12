@@ -1,13 +1,8 @@
 <label class="block mt-4">
     <span class="text-gray-700">Van welk type voertuig wilt u voertuiginformatie opzoeken?</span>
-    <!-- <select class="block w-full mt-1 rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0" name="vehicle-type">
-        @for (item of vehicleTypes; track $index) {
-            <option>{{item.name}}</option>
-        }
-    </select> -->
+    <select class="block w-full mt-1 rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0" name="vehicle-type">
+        <option *ngFor="let vehicleType of vehicleTypes">
+            {{ vehicleType }}
+        </option>
+    </select>
 </label>
-
-
-@for (item of items; track $index) {
-{{ item }}
-}

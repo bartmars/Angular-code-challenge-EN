@@ -7,21 +7,6 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VehicleTypeComponent implements OnInit {
   vehicleTypes: any[] = [
-    {
-      id: 1,
-      type: 'Auto'
-    },
-    {
-      id: 2,
-      type: 'Motor'
-    },
-    {
-      id: 3,
-      type: 'Scooter'
-    }
-  ]
-
-  items: any[] = [
     "Auto",
     "Motor",
     "Scooter"
