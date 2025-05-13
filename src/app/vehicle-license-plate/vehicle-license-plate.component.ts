@@ -15,8 +15,8 @@ export class VehicleLicensePlateComponent implements OnInit {
   // kenteken: string = '45-HNT-1'
   // message: string = ''
 
-  // inputElm: HTMLElement = document.getElementById('input-kenteken')
-  // outputElm: HTMLElement|null = document.getElementById('output-kenteken')
+  inputElm: HTMLElement = document.getElementById('input-kenteken') as HTMLInputElement
+  outputElm: HTMLElement|null = document.getElementById('output-kenteken')
 
 
   // constructor() {
