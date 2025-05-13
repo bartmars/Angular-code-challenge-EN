@@ -7,6 +7,7 @@ import { VehicleTypeComponent } from './vehicle-type/vehicle-type.component';
 import { VehicleSubTypeComponent } from './vehicle-sub-type/vehicle-sub-type.component';
 import { VehicleLicensePlateComponent } from './vehicle-license-plate/vehicle-license-plate.component';
 import { VehiclePictureComponent } from './vehicle-picture/vehicle-picture.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { VehiclePictureComponent } from './vehicle-picture/vehicle-picture.compo
   ],
   imports: [
     BrowserModule,
-    StoreModule.forRoot({}, {})
+    StoreModule.forRoot({}, {}),
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
