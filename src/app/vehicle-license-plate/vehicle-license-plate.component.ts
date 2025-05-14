@@ -10,18 +10,21 @@ import { KentekenCheck } from 'rdw-kenteken-check'
 export class VehicleLicensePlateComponent implements OnInit {
   inputValue: string = ''
   inputElm = document.getElementById('kenteken') as HTMLInputElement
-  outputElm = document.getElementById('error') as HTMLElement
+  outputElm = document.getElementById('error') as HTMLDivElement
 
   verifyLicensePlate(): void {
     if (this.inputValue) {
       const kt = new KentekenCheck(this.inputValue, this.inputElm, this.outputElm, 'true')
       const result = kt.formatLicense()
-      console.log(kt.formatLicense())
 
-      const hasClass = outputElm.classList.contains('hidden')
+      // Debug result
+      console.log(result)
+
+      // const hasClass = this.outputElm.classList.contains('hidden')
 
       if (result === 'XX-XX-XX') {
-        this.outputElm.classList.toggle('hidden')
+        console.log(this.outputElm)
+        // this.outputElm.classList.add('hidden')
       }
 
     }
