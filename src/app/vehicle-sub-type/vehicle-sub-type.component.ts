@@ -45,11 +45,6 @@ export class VehicleSubTypeComponent implements OnInit {
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['selectedVehicleType'] && changes['selectedVehicleType'].currentValue) {
-      // Debug state
-      // console.log(`Auto: ${this.isAutoSelected}`)
-      // console.log(`Motor: ${this.isMotorSelected}`)
-      // console.log(`Scooter: ${this.isScooterSelected}`)
-
       if (this.selectedVehicleType === 'Auto') {
         this.isAutoSelected = true
         this.isMotorSelected = false
