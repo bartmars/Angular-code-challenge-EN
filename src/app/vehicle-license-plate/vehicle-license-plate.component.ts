@@ -9,26 +9,20 @@ import { KentekenCheck } from 'rdw-kenteken-check'
 })
 export class VehicleLicensePlateComponent implements OnInit {
   inputValue: string = ''
+  result: string = ''
   isCorrectValue: boolean = true
 
   verifyLicensePlate() {
     if (this.inputValue) {
       const kt = new KentekenCheck(this.inputValue)
-      const result = kt.formatLicense()
+      this.result = kt.formatLicense()
 
-      if (result === 'XX-XX-XX') {
+      if (this.result === 'XX-XX-XX') {
         this.isCorrectValue = false
       }
       else {
         this.isCorrectValue = true
       }
-
-      // Debug result
-      // console.log('Result:', result)
-      // console.log('Match:', result === 'XX-XX-XX')
-      // console.log('isCorrectValue', this.isCorrectValue)
-
-
     }
   }
 
