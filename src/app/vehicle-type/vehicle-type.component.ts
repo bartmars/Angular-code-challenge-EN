@@ -20,9 +20,6 @@ export class VehicleTypeComponent implements OnInit {
     const selectElement = event.target as HTMLSelectElement;
     const selectedValue = selectElement.value
     this.updateVehicleType.emit(selectedValue)
-
-    // Debug changing selected option
-    console.log(selectedValue)
   }
 
   constructor() { }
