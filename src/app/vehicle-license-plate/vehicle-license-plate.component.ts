@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, Directive, OnInit, viewChild, ViewChild } from '@angular/core'
 import { KentekenCheck } from 'rdw-kenteken-check'
 
 @Component({
@@ -9,26 +9,30 @@ import { KentekenCheck } from 'rdw-kenteken-check'
 })
 export class VehicleLicensePlateComponent implements OnInit {
   inputValue: string = ''
-  inputElm = document.getElementById('kenteken') as HTMLInputElement
-  outputElm = document.getElementById('error') as HTMLDivElement
+  isCorrectValue: boolean = true
 
-  verifyLicensePlate(): void {
+  verifyLicensePlate() {
     if (this.inputValue) {
-      const kt = new KentekenCheck(this.inputValue, this.inputElm, this.outputElm, 'true')
+      const kt = new KentekenCheck(this.inputValue)
       const result = kt.formatLicense()
 
-      // Debug result
-      console.log(result)
-
-      // const hasClass = this.outputElm.classList.contains('hidden')
-
       if (result === 'XX-XX-XX') {
-        console.log(this.outputElm)
-        // this.outputElm.classList.add('hidden')
+        this.isCorrectValue = false
       }
+      else {
+        this.isCorrectValue = true
+      }
+
+      // Debug result
+      // console.log('Result:', result)
+      // console.log('Match:', result === 'XX-XX-XX')
+      // console.log('isCorrectValue', this.isCorrectValue)
+
 
     }
   }
+
+  constructor() { }
 
   ngOnInit(): void {
   }
