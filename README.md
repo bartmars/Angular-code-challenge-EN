@@ -18,17 +18,17 @@ In this Code Challenge you will work on an example form. The styling and html ar
 Finish the example form (see src/app/app.component.html for the existing html). We expect your application to contain at least (part of) the following requirements:
 
 Functionalities:
-- The user must be able to select the type of vehicle
+- [x] The user must be able to select the type of vehicle
     - Possible choices:
         - auto
         - motor
         - scooter
-- The image to the right of the form should change based on the user's choice. The following combinations are possible:
+- [x] The image to the right of the form should change based on the user's choice. The following combinations are possible:
     - auto: assets/auto.jpg
     - motor: assets/motor.jpg
     - scooter: assets/scooter.jpg     
-- The user must be able to choose the subtype of the vehicle.
-    - Possible subtypes for vehicle _auto_
+- [x] The user must be able to choose the subtype of the vehicle.
+    [x] - Possible subtypes for vehicle _auto_
         - Hatchback
         - Sedan
         - Station
@@ -36,7 +36,7 @@ Functionalities:
         - Coupé
         - Multi Purpose Vehicle (MVP)
         - Terreinauto
-    - Possible subtypes for vehicle _motor_:
+    [x] - Possible subtypes for vehicle _motor_:
         - All-road
         - Naked
         - Enduro
@@ -44,19 +44,19 @@ Functionalities:
         - Toermotor
         - Chopper
         - Zijspan
-    - Possible subtypes for vehicle _scooter_:
+    [x] - Possible subtypes for vehicle _scooter_:
         - For _scooters_, the user cannot choose a subtype
-- (not implemented yet!) Implement license plate formatting as follows:
+- [ ] Implement license plate formatting as follows:
     - Insert a dash between the numbers and letters of the license plate. AA14BB then becomes AA-14-BB
     - For letter combinations of 4 characters: insert a dash after 2 characters. 12AABB then becomes 12-AA-BB
-- Implement basic license plate validation:
-    - Use the following library to implement license plate validation: https://www.npmjs.com/package/rdw-kenteken-check
-    - Is the entered value invalid? Then show the following error message (on-blur of the field): "Helaas is het ingevoerde kenteken niet geldig. Probeer het opnieuw." 
+- [x] Implement basic license plate validation:
+    [x] - Use the following library to implement license plate validation: https://www.npmjs.com/package/rdw-kenteken-check
+    [x] - Is the entered value invalid? Then show the following error message (on-blur of the field): "Helaas is het ingevoerde kenteken niet geldig. Probeer het opnieuw." 
 
 ### Technical requirements:
-- Split the html into logical Angular components
-- Use Angular Reactive forms to build your form
-- Use NgRx to manage the data in the state and incorporate some effects
+- [x] Split the html into logical Angular components
+- [ ] Use Angular Reactive forms to build your form
+- [ ] Use NgRx to manage the data in the state and incorporate some effects
 
 ## Conditions
 - To keep the challenge on a level playing field for all candidates, we expect you to spend no more than at minimum 2 and at maximum 4 hours on the challenge. Not finished with all requirements after 4 hours? No problem, just send in what you have. We find quality and an eye for details much more important than that you have realized all the requirements.
