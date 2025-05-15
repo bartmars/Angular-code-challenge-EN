@@ -28,7 +28,7 @@ Functionalities:
     - motor: assets/motor.jpg
     - scooter: assets/scooter.jpg     
 - [x] The user must be able to choose the subtype of the vehicle.
-    [x] - Possible subtypes for vehicle _auto_
+     - [x] Possible subtypes for vehicle _auto_
         - Hatchback
         - Sedan
         - Station
@@ -36,7 +36,7 @@ Functionalities:
         - Coupé
         - Multi Purpose Vehicle (MVP)
         - Terreinauto
-    [x] - Possible subtypes for vehicle _motor_:
+    - [x] Possible subtypes for vehicle _motor_:
         - All-road
         - Naked
         - Enduro
@@ -44,14 +44,14 @@ Functionalities:
         - Toermotor
         - Chopper
         - Zijspan
-    [x] - Possible subtypes for vehicle _scooter_:
+     - [x] Possible subtypes for vehicle _scooter_:
         - For _scooters_, the user cannot choose a subtype
 - [ ] Implement license plate formatting as follows:
-    - Insert a dash between the numbers and letters of the license plate. AA14BB then becomes AA-14-BB
-    - For letter combinations of 4 characters: insert a dash after 2 characters. 12AABB then becomes 12-AA-BB
+    - [ ] Insert a dash between the numbers and letters of the license plate. AA14BB then becomes AA-14-BB
+    - [ ] For letter combinations of 4 characters: insert a dash after 2 characters. 12AABB then becomes 12-AA-BB
 - [x] Implement basic license plate validation:
-    [x] - Use the following library to implement license plate validation: https://www.npmjs.com/package/rdw-kenteken-check
-    [x] - Is the entered value invalid? Then show the following error message (on-blur of the field): "Helaas is het ingevoerde kenteken niet geldig. Probeer het opnieuw." 
+    - [x] Use the following library to implement license plate validation: https://www.npmjs.com/package/rdw-kenteken-check
+    - [x] Is the entered value invalid? Then show the following error message (on-blur of the field): "Helaas is het ingevoerde kenteken niet geldig. Probeer het opnieuw." 
 
 ### Technical requirements:
 - [x] Split the html into logical Angular components
