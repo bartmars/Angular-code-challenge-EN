@@ -3,10 +3,10 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 import { KentekenCheck } from 'rdw-kenteken-check'
 
 @Component({
-    selector: 'app-vehicle-license-plate',
-    templateUrl: './vehicle-license-plate.component.html',
-    styleUrls: ['./vehicle-license-plate.component.css'],
-    standalone: false,
+  selector: 'app-vehicle-license-plate',
+  templateUrl: './vehicle-license-plate.component.html',
+  styleUrls: ['./vehicle-license-plate.component.css'],
+  standalone: false,
 })
 export class VehicleLicensePlateComponent implements OnInit {
   vehicleLicensePlateForm: FormGroup
@@ -18,31 +18,41 @@ export class VehicleLicensePlateComponent implements OnInit {
   constructor(private fb: FormBuilder) {
     this.vehicleLicensePlateForm = this.fb.group({
       licensePlate: [
-        '', 
+        '',
         [
           Validators.required,
-          Validators.pattern(/^[a-zA-Z]{2}-\d{2}-[a-zA-Z]{2}$/),
-          Validators.pattern(/^[a-zA-Z]{2}-\d{3}-[a-zA-Z]{1}$/),
-          Validators.pattern(/^[a-zA-Z]{1}-\d{3}-[a-zA-Z]{2}$/),
+          Validators.minLength(6),
+          Validators.pattern(/^[a-zA-Z]{2}-\d{2}-[a-zA-Z]{2}$/g),
+          // Validators.pattern(/^[a-zA-Z]{2}-\d{3}-[a-zA-Z]{1}$/),
+          // Validators.pattern(/^[a-zA-Z]{1}-\d{3}-[a-zA-Z]{2}$/),
         ]
       ]
     });
   }
 
-  async onSubmit() {
+  onSubmit() {
     this.error = false;
     this.vehicleData = null;
 
     if (this.vehicleLicensePlateForm.valid) {
-      const plate = new KentekenCheck(this.vehicleLicensePlateForm.value.licensePlate);
+      console.log("Form validation succeeded, processing..")
+      const plate = new KentekenCheck(this.vehicleLicensePlateForm.value.licensePlate)
 
-      this.vehicleData = await plate.formatLicense();
-      if (this.vehicleData === 'XX-XX-XX') {
+      this.vehicleData = plate.formatLicense();
+      if (this.vehicleData === "XX-XX-XX") {
+        // Returns an invalid license plate and unhides error message in form
+        console.log("Invalid license plate:", this.vehicleData)
         this.error = true
+      }
+      else {
+        // Returns a valid license plate
+        console.log("Valid license plate:", this.vehicleData)
+        this.error = false
       }
     }
     else {
-      this.error = this.vehicleLicensePlateForm.valid
+      console.log("Form validation failed, try again.")
+      this.error = true
     }
   }
 
