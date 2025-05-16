@@ -1,4 +1,5 @@
-import { Component, Directive, OnInit, viewChild, ViewChild } from '@angular/core'
+import { Component, input, OnInit } from '@angular/core'
+import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 import { KentekenCheck } from 'rdw-kenteken-check'
 
 @Component({
@@ -8,27 +9,72 @@ import { KentekenCheck } from 'rdw-kenteken-check'
     standalone: false,
 })
 export class VehicleLicensePlateComponent implements OnInit {
-  inputValue: string = ''
-  result: string = ''
-  isCorrectValue: boolean = true
+  vehicleLicensePlateForm: FormGroup
+  vehicleData: any = null
+  error: boolean | null = false
+  valid: boolean | null = false
+  debugForm: boolean | null = true
 
-  verifyLicensePlate() {
-    if (this.inputValue) {
-      const kt = new KentekenCheck(this.inputValue)
-      this.result = kt.formatLicense()
+  constructor(private fb: FormBuilder) {
+    this.vehicleLicensePlateForm = this.fb.group({
+      licensePlate: [
+        '', 
+        [
+          Validators.required,
+          Validators.pattern(/^[a-zA-Z]{2}-\d{2}-[a-zA-Z]{2}$/),
+          Validators.pattern(/^[a-zA-Z]{2}-\d{3}-[a-zA-Z]{1}$/),
+          Validators.pattern(/^[a-zA-Z]{1}-\d{3}-[a-zA-Z]{2}$/),
+        ]
+      ]
+    });
+  }
 
-      if (this.result === 'XX-XX-XX') {
-        this.isCorrectValue = false
+  async onSubmit() {
+    this.error = false;
+    this.vehicleData = null;
+
+    if (this.vehicleLicensePlateForm.valid) {
+      const plate = new KentekenCheck(this.vehicleLicensePlateForm.value.licensePlate);
+
+      this.vehicleData = await plate.formatLicense();
+      if (this.vehicleData === 'XX-XX-XX') {
+        this.error = true
       }
-      else {
-        this.isCorrectValue = true
-      }
+    }
+    else {
+      this.error = this.vehicleLicensePlateForm.valid
     }
   }
 
-  constructor() { }
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void { }
 }
+
+
+
+
+// export class VehicleLicensePlateComponent implements OnInit {
+//   inputValue: string = ''
+//   result: string = ''
+//   isCorrectValue: boolean = true
+
+//   verifyLicensePlate() {
+//     if (this.inputValue) {
+//       const kt = new KentekenCheck(this.inputValue)
+//       this.result = kt.formatLicense()
+
+//       if (this.result === 'XX-XX-XX') {
+//         this.isCorrectValue = false
+//       }
+//       else {
+//         this.isCorrectValue = true
+//       }
+//     }
+//   }
+
+//   constructor() { }
+
+//   ngOnInit(): void {
+//   }
+
+// }

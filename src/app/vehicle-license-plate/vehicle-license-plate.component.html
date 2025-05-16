@@ -1,4 +1,64 @@
-<label class="block mt-4">
+
+<form [formGroup]="vehicleLicensePlateForm" (ngSubmit)="onSubmit()">
+    <label for="licensePlate">
+        <span class="text-gray-700">Vul het kenteken van uw [auto/motor/brommer] in.</span>
+        <input id="licensePlate" formControlName="licensePlate" placeholder="Bijvoorbeeld AA-BB-12" class="mt-1 block w-full rounded-md bg-yellow-400 border-red-400 focus:border-gray-500 focus:bg-yellow-300 focus:ring-0"/>
+    </label>
+
+    @if (error) {
+        <div class="error">
+            <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mt-2" role="alert">
+                <div class="font-bold">Oeps, het ingevoerde kenteken is niet geldig.</div>
+                <div class="block sm:inline">Gebruik het volgende formaat AA-12-BB.</div>
+            </div>
+        </div>
+    }
+
+
+    <div class="mt-4">
+        <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Submit</button>
+    </div>
+
+    @if (debugForm) {
+        @if (vehicleData) {
+            <div>
+                <pre>{{ vehicleData | json }}</pre>
+            </div>
+        }
+        @else {
+            <div>
+                <pre>No data</pre>
+            </div>
+        }      
+    }
+
+</form>
+
+
+
+
+
+
+
+<!-- <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+    <label for="myInput">Enter code (e.g., ABC-123):
+        <input id="myInput" type="text" formControlName="myInput" maxlength="8" (input)="formatInput()" class="mt-1 block w-full rounded-md bg-yellow-400 border-red-400 focus:border-gray-500 focus:bg-yellow-300 focus:ring-0" />
+    </label>
+    <div *ngIf="myInput.invalid" style="color: red;">
+        <div *ngIf="myInput.errors?.['pattern']" class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mt-2" role="alert">
+            <div class="font-bold">Oeps, het ingevoerde kenteken is niet geldig.</div>
+            <div class="block sm:inline">Gebruik het volgende formaat AA-12-BB.</div>
+        </div>
+    </div>
+
+    <div class="mt-4">
+        <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Submit</button>
+    </div>
+</form> -->
+
+
+
+<!-- <label class="block mt-4">
     <span class="text-gray-700">Vul het kenteken van uw [auto/motor/brommer] in.</span>
     <input [(ngModel)]="inputValue" placeholder="Bijvoorbeeld AA-BB-12" id="kenteken" name="kenteken" value="{{ result }}" class="mt-1 block w-full rounded-md bg-yellow-400 border-red-400 focus:border-gray-500 focus:bg-yellow-300 focus:ring-0" />
 
@@ -17,4 +77,4 @@
     @if (!isCorrectValue) {
         <div class="text-red-700">Vul alle waardes correct in.</div>
     }
-</div>
+</div> -->
