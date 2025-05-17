@@ -27,10 +27,6 @@ export class VehicleLicensePlateComponent implements OnInit {
     })
   }
 
-  formatLicensePlate() {
-    return this.vehicleLicensePlateForm.value.replace(/([A-Za-z]+)(\d+)|(\d+)([A-Za-z]+)/g, '$1$3-$2$4')
-  }
-
   onSubmit() {
     this.error = null;
     this.vehicleData = null;
