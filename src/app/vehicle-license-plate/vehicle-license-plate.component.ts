@@ -22,23 +22,24 @@ export class VehicleLicensePlateComponent implements OnInit {
         [
           Validators.required,
           Validators.minLength(6),
-          Validators.pattern(/^[a-zA-Z]{2}-\d{2}-[a-zA-Z]{2}$/g),
-          // Validators.pattern(/^[a-zA-Z]{2}-\d{3}-[a-zA-Z]{1}$/),
-          // Validators.pattern(/^[a-zA-Z]{1}-\d{3}-[a-zA-Z]{2}$/),
         ]
       ]
-    });
+    })
+  }
+
+  formatLicensePlate() {
+    return this.vehicleLicensePlateForm.value.replace(/([A-Za-z]+)(\d+)|(\d+)([A-Za-z]+)/g, '$1$3-$2$4')
   }
 
   onSubmit() {
-    this.error = false;
+    this.error = null;
     this.vehicleData = null;
 
     if (this.vehicleLicensePlateForm.valid) {
       console.log("Form validation succeeded, processing..")
       const plate = new KentekenCheck(this.vehicleLicensePlateForm.value.licensePlate)
-
       this.vehicleData = plate.formatLicense();
+
       if (this.vehicleData === "XX-XX-XX") {
         // Returns an invalid license plate and unhides error message in form
         console.log("Invalid license plate:", this.vehicleData)
@@ -47,7 +48,7 @@ export class VehicleLicensePlateComponent implements OnInit {
       else {
         // Returns a valid license plate
         console.log("Valid license plate:", this.vehicleData)
-        this.error = false
+        this.error = null
       }
     }
     else {
