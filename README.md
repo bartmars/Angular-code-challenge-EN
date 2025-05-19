@@ -46,9 +46,9 @@ Functionalities:
         - Zijspan
      - [x] Possible subtypes for vehicle _scooter_:
         - For _scooters_, the user cannot choose a subtype
-- [ ] Implement license plate formatting as follows:
-    - [ ] Insert a dash between the numbers and letters of the license plate. AA14BB then becomes AA-14-BB
-    - [ ] For letter combinations of 4 characters: insert a dash after 2 characters. 12AABB then becomes 12-AA-BB
+- [x] Implement license plate formatting as follows:
+    - [x] Insert a dash between the numbers and letters of the license plate. AA14BB then becomes AA-14-BB
+    - [x] For letter combinations of 4 characters: insert a dash after 2 characters. 12AABB then becomes 12-AA-BB
 - [x] Implement basic license plate validation:
     - [x] Use the following library to implement license plate validation: https://www.npmjs.com/package/rdw-kenteken-check
     - [x] Is the entered value invalid? Then show the following error message (on-blur of the field): "Helaas is het ingevoerde kenteken niet geldig. Probeer het opnieuw." 
