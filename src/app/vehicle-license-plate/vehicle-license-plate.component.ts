@@ -53,35 +53,5 @@ export class VehicleLicensePlateComponent implements OnInit {
     }
   }
 
-
   ngOnInit(): void { }
 }
-
-
-
-
-// export class VehicleLicensePlateComponent implements OnInit {
-//   inputValue: string = ''
-//   result: string = ''
-//   isCorrectValue: boolean = true
-
-//   verifyLicensePlate() {
-//     if (this.inputValue) {
-//       const kt = new KentekenCheck(this.inputValue)
-//       this.result = kt.formatLicense()
-
-//       if (this.result === 'XX-XX-XX') {
-//         this.isCorrectValue = false
-//       }
-//       else {
-//         this.isCorrectValue = true
-//       }
-//     }
-//   }
-
-//   constructor() { }
-
-//   ngOnInit(): void {
-//   }
-
-// }

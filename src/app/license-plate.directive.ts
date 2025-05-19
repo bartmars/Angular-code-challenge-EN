@@ -20,7 +20,6 @@ export class LicensePlateDirective {
     const patterns = [
       { regex: /^([A-Z]{2})(\d{2})(\d{2})$/, format: '$1-$2-$3' }, // XX9999
       // { regex: /^(\d{2})(\d{2})([A-Z]{2})$/, format: '$1-$2-$3' }, // 9999XX
-
       // { regex: /^(\d{2})([A-Z]{2})(\d{2})$/, format: '$1-$2-$3' }, // 99XX99
       // { regex: /^([A-Z]{2})(\d{2})([A-Z]{2})$/, format: '$1-$2-$3' }, // XX99XX
       // { regex: /^(\d{2})([A-Z]{4})$/, format: '$1-$2' }, // 99XXXX
